@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>resources\icon.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Dualsense\0.ico" />
+    <None Remove="Resources\Dualsense\0C.ico" />
+    <None Remove="Resources\Dualsense\1.ico" />
+    <None Remove="Resources\Dualsense\1C.ico" />
+    <None Remove="Resources\Dualsense\2.ico" />
+    <None Remove="Resources\Dualsense\2C.ico" />
+    <None Remove="Resources\Dualsense\3.ico" />
+    <None Remove="Resources\Dualsense\3C.ico" />
+    <None Remove="Resources\Dualsense\4.ico" />
+    <None Remove="Resources\Dualsense\4C.ico" />
+    <None Remove="Resources\Dualsense\Base.ico" />
+    <None Remove="Resources\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Dualsense\0.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\0C.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\1.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\1C.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\2.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\2C.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\3.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\3C.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\4.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\4C.ico" />
+    <EmbeddedResource Include="Resources\Dualsense\Base.ico" />
+    <EmbeddedResource Include="Resources\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HidSharp" Version="2.6.4" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+  </ItemGroup>
+
+</Project>
