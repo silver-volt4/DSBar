@@ -90,7 +90,7 @@ namespace DSBar
 
             if (success)
             {
-                batteryLevel = (Math.Min(8, b0 & 0x0F) * 100) / 8;
+                batteryLevel = ((b0 & 0x08) * 100) / 8;
                 status = DeviceStatus.Discharging;
                 if (b1 > 0)
                 {
@@ -111,26 +111,20 @@ namespace DSBar
 
         public override Icon GetIconByControllerState()
         {
-            string imageFile = "Base";
-            if (status != DeviceStatus.New && status != DeviceStatus.Unknown)
+            if (status.IsInitialized())
             {
                 if (batteryLevel == 0)
-                    imageFile = "0";
+                    return status.IsCharging() ? Resources.Dualsense.Icons.Charging0 : Resources.Dualsense.Icons.Discharging0;
                 else if (batteryLevel <= 25)
-                    imageFile = "1";
+                    return status.IsCharging() ? Resources.Dualsense.Icons.Charging25 : Resources.Dualsense.Icons.Discharging0;
                 else if (batteryLevel <= 50)
-                    imageFile = "2";
+                    return status.IsCharging() ? Resources.Dualsense.Icons.Charging50 : Resources.Dualsense.Icons.Discharging50;
                 else if (batteryLevel <= 75)
-                    imageFile = "3";
+                    return status.IsCharging() ? Resources.Dualsense.Icons.Charging75 : Resources.Dualsense.Icons.Discharging75;
                 else
-                    imageFile = "4";
-
-                if (status == DeviceStatus.Charging || status == DeviceStatus.FullyCharged)
-                {
-                    imageFile += "C";
-                }
+                    return status.IsCharging() ? Resources.Dualsense.Icons.Charging100 : Resources.Dualsense.Icons.Discharging100;
             }
-            return Resources.GetIcon($"DSBar.Resources.Dualsense.{imageFile}.ico");
+            return Resources.Dualsense.Icons.Base;
         }
     }
 }

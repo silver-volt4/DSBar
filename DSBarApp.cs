@@ -28,7 +28,7 @@ namespace DSBar
 
             mainIcon = new()
             {
-                Icon = Resources.GetIcon("DSBar.Resources.icon.ico"),
+                Icon = Resources.General.AppIcon,
                 ContextMenuStrip = mainMenu,
                 Text = "DSBar",
                 Visible = true

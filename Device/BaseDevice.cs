@@ -1,5 +1,6 @@
 ﻿using HidSharp;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DSBar
 {
@@ -10,6 +11,19 @@ namespace DSBar
         Discharging,
         Charging,
         FullyCharged
+    }
+
+    static class XDeviceStatus
+    {
+        public static bool IsInitialized(this DeviceStatus status)
+        {
+            return status != DeviceStatus.New && status != DeviceStatus.Unknown;
+        }
+
+        public static bool IsCharging(this DeviceStatus status)
+        {
+            return status == DeviceStatus.Charging || status == DeviceStatus.FullyCharged;
+        }
     }
 
     internal abstract class BaseDevice
